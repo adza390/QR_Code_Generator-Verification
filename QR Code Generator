@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>QR Code Identification</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+</head>
+<body>
+  <h1>QR Code Identification</h1>
+  <div id="qrcode"></div>
+  <input type="text" id="inputText" placeholder="Enter Name or ID">
+  <button onclick="generateQRCode()">Generate QR Code</button>
+
+  <script>
+    function generateQRCode() {
+      var inputText = document.getElementById("inputText").value;
+      if (inputText !== "") {
+        var qrcode = new QRCode(document.getElementById("qrcode"), {
+          text: inputText,
+          width: 128,
+          height: 128
+        });
+      } else {
+        alert("Please enter a name or ID.");
+      }
+    }
+  </script>
+</body>
+</html>
